@@ -1,3 +1,9 @@
+## [1.0.5](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.4...v1.0.5) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* fix URL ([acd7996](https://github.com/rhubarbshoelaces/morphe-patches/commit/acd79967d55d13b22ec170b0f6c1d3dcb1e3a902))
+
 ## [1.0.4](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.3...v1.0.4) (2026-08-21)
 
 ### 🐛 Bug Fixes
