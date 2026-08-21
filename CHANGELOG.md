@@ -1,3 +1,9 @@
+## [1.0.7](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.6...v1.0.7) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* Dynamically align Gradle build version with semantic release ([55bd17c](https://github.com/rhubarbshoelaces/morphe-patches/commit/55bd17ca0f9d39d7772afe8791b07875166649c9))
+
 ## [1.0.6](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.5...v1.0.6) (2026-08-21)
 
 ### 🐛 Bug Fixes
