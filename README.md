@@ -5,7 +5,7 @@ Morphe Patches for some Android app that I use.
 ## ❓ About
 
 **Current Patches Include:**
-*   **Boost for Reddit (Fix Random Subreddit Button):** Fix for the "Random subreddit" buttons found in the slide panel, the three dot menu, and in the search suggestions. 
+*   **Boost for Reddit (Fix Random Subreddit Button):** Fixes for the "Random subreddit" buttons found in the slide panel, the three dot menu, and in the search suggestions. 
 *   **theScore (Remove Ads):** Modifies the XML layout to hide ad containers, plus bypassing the built-in 2-second splash screen delay.
 
 ## 🩹 Patches list
