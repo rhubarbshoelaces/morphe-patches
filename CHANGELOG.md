@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.2...v1.0.3) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* more README.md tweaks ([0444a4d](https://github.com/rhubarbshoelaces/morphe-patches/commit/0444a4d520a4aa3ec9972cda7247c2ad2473f380))
+
 ## [1.0.2](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.1...v1.0.2) (2026-08-21)
 
 ### 🐛 Bug Fixes
