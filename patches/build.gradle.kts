@@ -2,8 +2,8 @@ group = "com.rhubarbshoelaces"
 version = "1.0.4"
 patches {
     about {
-        name = "Rhubarb Shoelace Patches"
-        description = "Fixes for Boost Randomizer and theScore ad removal"
+        name = "Rhubarb Shoelaces Patches"
+        description = "Fixes for Boost Random Subreddit and theScore ad removal"
         source = "https://github.com/rhubarbshoelaces/morphe-patches"
         author = "rhubarbshoelaces"
         contact = "na"
