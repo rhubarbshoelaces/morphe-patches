@@ -1,3 +1,9 @@
+## [1.0.6](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.5...v1.0.6) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* plural shoelaces ([e68f9f2](https://github.com/rhubarbshoelaces/morphe-patches/commit/e68f9f220d36cd791bfd9af20b466440df2bb8e9))
+
 ## [1.0.5](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.4...v1.0.5) (2026-08-21)
 
 ### 🐛 Bug Fixes
