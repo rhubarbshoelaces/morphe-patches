@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.3...v1.0.4) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* no need for dev branch ([97d1145](https://github.com/rhubarbshoelaces/morphe-patches/commit/97d11451a87ede36a0b7a1f59529045b4a2613b0))
+* no need for dev branch ([da7f0ff](https://github.com/rhubarbshoelaces/morphe-patches/commit/da7f0ff9136fb8c43aabb3a80de0b61fc6894e0e))
+* no need for dev branch ([841fa3e](https://github.com/rhubarbshoelaces/morphe-patches/commit/841fa3e8ca9ca8de9356c7071f46041d96bb0f36))
+
 ## [1.0.3](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.2...v1.0.3) (2026-08-21)
 
 ### 🐛 Bug Fixes
