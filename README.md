@@ -1,10 +1,8 @@
 # 👋🧩 RhubarbShoelaces Morphe Patches
 
-Personal repository for Morphe Patches.
+Morphe Patches for some Android app that I use.
 
 ## ❓ About
-
-This repository contains custom Morphe patches designed to revive and improve legacy Android apps.
 
 **Current Patches Include:**
 *   **Boost for Reddit (Fix Random Subreddit Button):** Fix for the "Random subreddit" buttons found in the slide panel, the three dot menu, and in the search suggestions. 
