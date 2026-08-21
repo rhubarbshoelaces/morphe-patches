@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.0...v1.0.1) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* Add missing dev branch for backmerge ([871ac8f](https://github.com/rhubarbshoelaces/morphe-patches/commit/871ac8f5653de55c9e772dda1d72fce9a645dda0))
+
 ## 1.0.0 (2026-08-21)
 
 ### 🐛 Bug Fixes
