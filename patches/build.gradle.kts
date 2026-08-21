@@ -1,13 +1,13 @@
-group = "com.local.thescore"
+group = "com.rhubarbshoelaces"
 version = "1.0.4"
 patches {
     about {
         name = "Rhubarb Shoelace Patches"
-        description = "Fixes and adremoval for widgets for TheScore and Inoreader, and Boost Random"
-        source = "local"
+        description = "Fixes for Boost Randomizer and theScore ad removal"
+        source = "https://github.com/rhubarbshoelaces/morphe-patches"
         author = "rhubarbshoelaces"
         contact = "na"
-        website = "na"
+        website = "https://github.com/rhubarbshoelaces/morphe-patches"
         license = "GPLv3"
     }
 }
