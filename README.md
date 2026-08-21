@@ -1,6 +1,6 @@
 # 👋🧩 RhubarbShoelaces Morphe Patches
 
-Morphe Patches for some Android app that I use.
+Morphe Patches for some Android apps that I use.
 
 ## ❓ About
 
