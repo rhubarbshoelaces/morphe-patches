@@ -40,6 +40,8 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 
 Or manually add this repository url as a patch source in Morphe: https://github.com/rhubarbshoelaces/morphe-patches
 
+With Boost, Wchill's patches are recommended for various other fixes: https://github.com/wchill/patcheddit
+
 ### 🛠️ Building
 
 To build these patches,
