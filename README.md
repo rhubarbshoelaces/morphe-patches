@@ -36,9 +36,9 @@ Morphe Patches for some Android app that I use.
 
 #### How to use these patches
 
-Click here to add these patches to Morphe: https://morphe.software/add-source?github=rhubarbshoelace/morphe-patches
+Click here to add these patches to Morphe: https://morphe.software/add-source?github=rhubarbshoelaces/morphe-patches
 
-Or manually add this repository url as a patch source in Morphe: https://github.com/rhubarbshoelace/morphe-patches
+Or manually add this repository url as a patch source in Morphe: https://github.com/rhubarbshoelaces/morphe-patches
 
 ### 🛠️ Building
 
