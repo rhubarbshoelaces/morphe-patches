@@ -1,5 +1,5 @@
 group = "com.rhubarbshoelaces"
-version = "1.0.4"
+version = project.findProperty("version")?.toString() ?: "1.0.0"
 patches {
     about {
         name = "Rhubarb Shoelaces Patches"
