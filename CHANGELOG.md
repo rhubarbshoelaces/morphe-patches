@@ -1,3 +1,9 @@
+## [1.0.2-dev.1](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.1...v1.0.2-dev.1) (2026-08-21)
+
+### 🐛 Bug Fixes
+
+* Update patch metadata source and group namespace ([541f461](https://github.com/rhubarbshoelaces/morphe-patches/commit/541f461ef48bc4af0bb7d9ecca2fa6a77a92e8c7))
+
 ## [1.0.1](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.0...v1.0.1) (2026-08-21)
 
 ### 🐛 Bug Fixes

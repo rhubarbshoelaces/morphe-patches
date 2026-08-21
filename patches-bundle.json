@@ -1,7 +1,7 @@
 {
-  "created_at": "2026-08-21T15:03:58",
-  "description": "## [1.0.1](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.0...v1.0.1) (2026-08-21)\n\n### 🐛 Bug Fixes\n\n* Add missing dev branch for backmerge ([871ac8f](https://github.com/rhubarbshoelaces/morphe-patches/commit/871ac8f5653de55c9e772dda1d72fce9a645dda0))",
-  "download_url": "https://github.com/rhubarbshoelaces/morphe-patches/releases/download/v1.0.1/patches-1.0.1.mpp",
+  "created_at": "2026-08-21T15:36:36",
+  "description": "## [1.0.2-dev.1](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.1...v1.0.2-dev.1) (2026-08-21)\n\n### 🐛 Bug Fixes\n\n* Update patch metadata source and group namespace ([541f461](https://github.com/rhubarbshoelaces/morphe-patches/commit/541f461ef48bc4af0bb7d9ecca2fa6a77a92e8c7))",
+  "download_url": "https://github.com/rhubarbshoelaces/morphe-patches/releases/download/v1.0.2-dev.1/patches-1.0.2-dev.1.mpp",
   "signature_download_url": "",
-  "version": "1.0.1"
+  "version": "1.0.2-dev.1"
 }
