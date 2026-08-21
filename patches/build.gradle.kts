@@ -11,7 +11,6 @@ patches {
         license = "GPLv3"
     }
 }
-
 kotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xcontext-parameters")
