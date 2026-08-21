@@ -1,4 +1,4 @@
-# 👋🧩 Rhubarb Shoelaces Morphe Patches
+# 👋🧩 RhubarbShoelaces Morphe Patches
 
 Personal repository for Morphe Patches.
 
