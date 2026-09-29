@@ -50,6 +50,8 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 
 Or manually add this repository url as a patch source in Morphe: https://github.com/rhubarbshoelaces/morphe-patches
 
+With Google Map's, Bearinmindcat's Ungoogled Maps patches are required: https://github.com/bearinmindcat/morphe-patches
+
 With Boost, Wchill's patches or Breal's fork are recommended for their various other fixes:
 * Wchill: https://github.com/wchill/patcheddit
 * Breal: https://github.com/brealorg/breal-morphe-patches
