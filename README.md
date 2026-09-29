@@ -11,7 +11,17 @@ Morphe Patches for some Android apps that I use.
 ## 🩹 Patches list
 
 <!-- PATCHES_START EXPANDED -->
-> **[v1.0.9](https://github.com/rhubarbshoelaces/morphe-patches/releases/tag/v1.0.9)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
+> **[v1.0.10](https://github.com/rhubarbshoelaces/morphe-patches/releases/tag/v1.0.10)**&nbsp;&nbsp;•&nbsp;&nbsp;`main`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
+<details open>
+<summary>📦 Google Maps&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
+<br>
+
+| 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
+|----------|----------------|-----------|
+| [Custom Cartographic Region](#custom-cartographic-region) | Adds dynamic cartographic region overrides to Google Maps. |  |
+
+</details>
+
 <details open>
 <summary>📦 Boost for Reddit&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
