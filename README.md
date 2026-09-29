@@ -5,6 +5,7 @@ Morphe Patches for some Android apps that I use.
 ## ❓ About
 
 **Current Patches Include:**
+*   **Google Maps:** The Custom Cartographic Region allows a user to select a specific country/region for their cartographic data, which includes place names. Choosing "Canada (CA)", for example, will show "Lake Ontario" or choosing "Mexico (MX)" will show "Gulf of Mexico".
 *   **Boost for Reddit (Fix Random Subreddit Button):** Fixes for the "Random subreddit" buttons found in the slide panel, the three dot menu, and in the search suggestions. 
 *   **theScore (Remove Ads):** Modifies the XML layout to hide ad containers, plus bypassing the built-in 2-second splash screen delay.
 
