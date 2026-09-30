@@ -1,4 +1,4 @@
-package app.template.extension.extension;
+package rhubarbshoelaces.patches.boost.extension;
 
 import java.util.Random;
 

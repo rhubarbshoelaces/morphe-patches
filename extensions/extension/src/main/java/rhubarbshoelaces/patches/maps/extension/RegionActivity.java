@@ -1,4 +1,4 @@
-package app.template.extension.extension;
+package rhubarbshoelaces.patches.maps.extension;
 
 import android.app.Activity;
 import android.content.Context;
@@ -49,6 +49,32 @@ public final class RegionActivity extends Activity {
         SharedPreferences prefs = getSharedPreferences("ungoogled_prefs", MODE_PRIVATE);
         initialRegion = prefs.getString("forced_region", "OFF");
 
+        // --- TASKER / ADB DIRECT INTENT EXTRA HANDLER ---
+        Intent incomingIntent = getIntent();
+        if (incomingIntent != null && incomingIntent.hasExtra("region")) {
+            String targetRegion = incomingIntent.getStringExtra("region");
+            if (targetRegion != null && !targetRegion.trim().isEmpty()) {
+                targetRegion = targetRegion.trim().toUpperCase(Locale.ROOT);
+                if (!targetRegion.equalsIgnoreCase(initialRegion)) {
+                    prefs.edit().putString("forced_region", targetRegion).apply();
+
+                    Toast.makeText(getApplicationContext(), "Setting region to " + targetRegion + "...", Toast.LENGTH_SHORT).show();
+                    getSharedPreferences("settings_preference", MODE_PRIVATE).edit().remove("dark_mode").apply();
+
+                    new Handler(Looper.getMainLooper()).postDelayed(() -> {
+                        Intent launchIntent = getPackageManager().getLaunchIntentForPackage(getPackageName());
+                        if (launchIntent != null) {
+                            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(launchIntent);
+                        }
+                        Runtime.getRuntime().exit(0);
+                    }, 600);
+                }
+                finish(); // Close activity immediately without drawing UI
+                return;
+            }
+        }
+
         // Calculate Dark Mode
         String darkMode = getSharedPreferences("settings_preference", MODE_PRIVATE).getString("dark_mode", "FOLLOW_SYSTEM");
         boolean systemNight = (getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK) == android.content.res.Configuration.UI_MODE_NIGHT_YES;
@@ -61,7 +87,7 @@ public final class RegionActivity extends Activity {
         getWindow().setStatusBarColor(bg());
         getWindow().setNavigationBarColor(bg());
 
-        // Root View Container
+        // Root Layout
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setBackgroundColor(bg());
@@ -71,7 +97,7 @@ public final class RegionActivity extends Activity {
             return insets;
         });
 
-        // 1. Header (Title + Close Button)
+        // 1. Header View
         FrameLayout header = new FrameLayout(this);
         header.setPadding(dp(20), dp(20), dp(20), dp(12));
 
@@ -91,12 +117,11 @@ public final class RegionActivity extends Activity {
         header.addView(close, new FrameLayout.LayoutParams(dp(24), dp(24), Gravity.END | Gravity.CENTER_VERTICAL));
         root.addView(header);
 
-        // 2. Build Master Country List
+        // 2. Master List Setup
         List<CountryItem> allItems = new ArrayList<>();
         allItems.add(new CountryItem("OFF", "System Default (Unmodified)"));
 
         for (String code : Locale.getISOCountries()) {
-            // Displays in user's active device language
             String name = new Locale("", code).getDisplayCountry();
             if (name != null && !name.trim().isEmpty()) {
                 allItems.add(new CountryItem(code, name + " (" + code + ")"));
@@ -111,7 +136,7 @@ public final class RegionActivity extends Activity {
         List<String> displayNames = new ArrayList<>();
         for (CountryItem item : filteredItems) displayNames.add(item.displayName);
 
-        // 3. Body View (Search Edit Box + Full ListView)
+        // 3. Body View
         LinearLayout body = new LinearLayout(this);
         body.setOrientation(LinearLayout.VERTICAL);
         body.setPadding(dp(20), dp(4), dp(20), dp(16));
@@ -144,7 +169,7 @@ public final class RegionActivity extends Activity {
 
         body.addView(listView, new LinearLayout.LayoutParams(-1, -1));
 
-        // 4. Live Search Filtering Logic
+        // 4. Live Search Filtering
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -175,14 +200,12 @@ public final class RegionActivity extends Activity {
             @Override public void afterTextChanged(Editable s) {}
         });
 
-        // Item Selection
+        // 5. Instant Tap Selection Listener
         listView.setOnItemClickListener((parent, view, position, id) -> {
             if (position < filteredItems.size()) {
                 String chosenCode = filteredItems.get(position).code;
-
                 prefs.edit().putString("forced_region", chosenCode).apply();
-
-                finish();
+                finish(); // Saves selection & closes immediately
             }
         });
 
@@ -196,7 +219,6 @@ public final class RegionActivity extends Activity {
         SharedPreferences prefs = getSharedPreferences("ungoogled_prefs", MODE_PRIVATE);
         String currentRegion = prefs.getString("forced_region", "OFF");
 
-        // Triggers single restart on screen exit if selection changed
         if (isFinishing() && initialRegion != null && !initialRegion.equalsIgnoreCase(currentRegion)) {
             Context app = getApplicationContext();
             Toast.makeText(app, "Restarting Maps to apply region...", Toast.LENGTH_SHORT).show();
@@ -225,7 +247,6 @@ public final class RegionActivity extends Activity {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, v, getResources().getDisplayMetrics());
     }
 
-    // Static UI injection helper called on CustomizationActivity
     public static void addRegionRow(Activity customizationActivity) {
         try {
             ViewGroup root = (ViewGroup) customizationActivity.findViewById(android.R.id.content);
