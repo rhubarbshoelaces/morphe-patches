@@ -19,7 +19,7 @@ Morphe Patches for some Android apps that I use.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Custom Cartographic Region](#custom-cartographic-region) | Adds dynamic cartographic region overrides to Google Maps. |  |
+| [Custom Cartographic Region](#custom-cartographic-region) | Adds custom cartographic region overrides to Google Maps. |  |
 
 </details>
 
@@ -29,7 +29,7 @@ Morphe Patches for some Android apps that I use.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Fix Random Subreddit Button](#fix-random-subreddit-button) | Reroutes all Random buttons to pick from a custom pre-loaded list of thousands of subreddits. |  |
+| [Fix Random Subreddit Button](#fix-random-subreddit-button) | Reroutes the "Random" buttons to pick from a hardcoded list of subreddits. |  |
 
 </details>
 
@@ -39,7 +39,7 @@ Morphe Patches for some Android apps that I use.
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Remove Ads](#remove-ads) | Bypasses startup delays and collapses all ad containers. |  |
+| [Remove Ads](#remove-ads) | Bypasses the startup delay and collapses ad containers. |  |
 
 </details>
 
@@ -51,7 +51,10 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 
 Or manually add this repository url as a patch source in Morphe: https://github.com/rhubarbshoelaces/morphe-patches
 
-With Google Map's, Bearinmindcat's Ungoogled Maps patches are required: https://github.com/bearinmindcat/morphe-patches
+With Google Maps, Bearinmindcat's Ungoogled Maps patches are highly recommend: https://github.com/bearinmindcat/morphe-patches
+* At a minimum "Restore map data" is required to see map tiles.
+* Without the CustomizationScreen patch, the Cartography Region submenu can still be accessed with this shell command: am start -n org.ungoogled.android.apps.maps/rhubarbshoelaces.patches.maps.extension.RegionActivity
+* The region can also be set directly, say via Tasker, with a similar command: am start -n org.ungoogled.android.apps.maps/rhubarbshoelaces.patches.maps.extension.RegionActivity --es region "CA"
 
 With Boost, Wchill's patches or Breal's fork are recommended for their various other fixes:
 * Wchill: https://github.com/wchill/patcheddit
