@@ -52,7 +52,7 @@ Click here to add these patches to Morphe: https://morphe.software/add-source?gi
 Or manually add this repository url as a patch source in Morphe: https://github.com/rhubarbshoelaces/morphe-patches
 
 With Google Maps, Bearinmindcat's Ungoogled Maps patches are highly recommend: https://github.com/bearinmindcat/morphe-patches
-* At a minimum "Restore map data" is required to see map tiles.
+* At a minimum, "Restore map data" is required to see map tiles.
 * Without the CustomizationScreen patch, the Cartography Region submenu can still be accessed with this shell command: am start -n org.ungoogled.android.apps.maps/rhubarbshoelaces.patches.maps.extension.RegionActivity
 * The region can also be set directly, say via Tasker, with a similar command: am start -n org.ungoogled.android.apps.maps/rhubarbshoelaces.patches.maps.extension.RegionActivity --es region "CA"
 
