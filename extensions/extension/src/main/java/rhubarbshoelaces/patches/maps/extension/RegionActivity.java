@@ -260,6 +260,15 @@ public final class RegionActivity extends Activity {
                         if (sv.getChildCount() > 0 && sv.getChildAt(0) instanceof LinearLayout) {
                             LinearLayout body = (LinearLayout) sv.getChildAt(0);
 
+                            // Calculate Dark Mode directly
+                            SharedPreferences settingsPrefs = customizationActivity.getSharedPreferences("settings_preference", Context.MODE_PRIVATE);
+                            String darkMode = settingsPrefs.getString("dark_mode", "FOLLOW_SYSTEM");
+                            boolean systemNight = (customizationActivity.getResources().getConfiguration().uiMode & android.content.res.Configuration.UI_MODE_NIGHT_MASK) == android.content.res.Configuration.UI_MODE_NIGHT_YES;
+                            boolean isDark = "ON".equals(darkMode) || (!"OFF".equals(darkMode) && systemNight);
+
+                            int titleColor = isDark ? 0xFFE3E3E3 : 0xFF1B1B1F;
+                            int subtitleColor = isDark ? 0xFFC4C7C5 : 0xFF5F6368;
+
                             LinearLayout rowLayout = new LinearLayout(customizationActivity);
                             rowLayout.setOrientation(LinearLayout.VERTICAL);
                             rowLayout.setPadding(dp(customizationActivity, 20), dp(customizationActivity, 14), dp(customizationActivity, 20), dp(customizationActivity, 14));
@@ -273,7 +282,7 @@ public final class RegionActivity extends Activity {
                             TextView title = new TextView(customizationActivity);
                             title.setText("Cartographic Region");
                             title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-                            title.setTextColor(getSafeColor(customizationActivity, android.R.attr.textColorPrimary, 0xFF1B1A1F));
+                            title.setTextColor(titleColor);
 
                             SharedPreferences prefs = customizationActivity.getSharedPreferences("ungoogled_prefs", Context.MODE_PRIVATE);
                             String currentCode = prefs.getString("forced_region", "OFF");
@@ -284,7 +293,7 @@ public final class RegionActivity extends Activity {
                             TextView subtitle = new TextView(customizationActivity);
                             subtitle.setText(subtitleText);
                             subtitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
-                            subtitle.setTextColor(getSafeColor(customizationActivity, android.R.attr.textColorSecondary, 0xFF7D7568));
+                            subtitle.setTextColor(subtitleColor);
                             subtitle.setPadding(0, dp(customizationActivity, 2), 0, 0);
 
                             rowLayout.addView(title);
@@ -302,18 +311,6 @@ public final class RegionActivity extends Activity {
                 }
             }
         } catch (Exception ignored) {}
-    }
-
-    private static int getSafeColor(Context context, int attrRes, int fallbackColor) {
-        try {
-            TypedValue tv = new TypedValue();
-            if (context.getTheme().resolveAttribute(attrRes, tv, true)) {
-                if (tv.type >= TypedValue.TYPE_FIRST_COLOR_INT && tv.type <= TypedValue.TYPE_LAST_COLOR_INT) {
-                    return tv.data;
-                }
-            }
-        } catch (Exception ignored) {}
-        return fallbackColor;
     }
 
     private static int dp(Context context, int value) {
