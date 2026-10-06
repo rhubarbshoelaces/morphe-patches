@@ -1,6 +1,6 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.11",
+  "version": "1.0.13",
   "patches": [
     {
       "name": "Custom Cartographic Region",
@@ -14,34 +14,6 @@
         {
           "packageName": "com.google.android.apps.maps",
           "name": "Google Maps",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": null,
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Custom Transparent Widget",
-      "description": "Removes betting odds, forces transparency, and swaps team names.",
-      "default": true,
-      "dependencies": [
-        "ResourcePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.fivemobile.thescore",
-          "name": "theScore",
           "description": null,
           "apkFileType": null,
           "appIconColor": null,
@@ -96,37 +68,6 @@
         {
           "packageName": "com.google.android.apps.maps",
           "name": "Google Maps",
-          "description": null,
-          "apkFileType": null,
-          "appIconColor": null,
-          "signatures": null,
-          "targets": [
-            {
-              "version": null,
-              "versionCodes": null,
-              "isExperimental": false,
-              "minSdk": null,
-              "description": null
-            }
-          ]
-        }
-      ],
-      "options": []
-    },
-    {
-      "name": "Inoreader Custom Widget & DRM Bypass",
-      "description": "Applies all transparent widget layouts, custom icons, and removes PairIP license checks.",
-      "default": true,
-      "dependencies": [
-        "ResourcePatch",
-        "BytecodePatch",
-        "BytecodePatch",
-        "ResourcePatch"
-      ],
-      "compatiblePackages": [
-        {
-          "packageName": "com.innologica.inoreader",
-          "name": "Inoreader",
           "description": null,
           "apkFileType": null,
           "appIconColor": null,
