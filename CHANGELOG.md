@@ -1,3 +1,9 @@
+## [1.0.15](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.14...v1.0.15) (2026-10-11)
+
+### 🐛 Bug Fixes
+
+* moving "Light Map in Dark Mode" into new "UI" subpage ([9c69b14](https://github.com/rhubarbshoelaces/morphe-patches/commit/9c69b145db4fef1dc99fe4e368a83c7a9cca6483))
+
 ## [1.0.14](https://github.com/rhubarbshoelaces/morphe-patches/compare/v1.0.13...v1.0.14) (2026-10-08)
 
 ### 🐛 Bug Fixes
