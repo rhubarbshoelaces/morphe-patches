@@ -38,12 +38,12 @@ public final class ThemeHelper {
         return false;
     }
 
-    // --- UI INJECTOR: HYBRID THEME ROW ---
+    // --- UI INJECTOR: HYBRID THEME ROW (Targeting "UI" Submenu) ---
     public static void addHybridThemeRow(Activity customizationActivity) {
         try {
-            // --- 100% ROBUST SUBMENU GUARD ---
-            android.content.Intent intent = customizationActivity.getIntent();
-            if (intent != null && intent.hasExtra("org.ungoogled.ui.page")) {
+            Intent intent = customizationActivity.getIntent();
+            String page = (intent != null) ? intent.getStringExtra("org.ungoogled.ui.page") : null;
+            if (!"ui".equals(page)) {
                 return;
             }
 
@@ -120,9 +120,9 @@ public final class ThemeHelper {
                             Toast.makeText(app, "Restarting Maps to apply theme...", Toast.LENGTH_SHORT).show();
 
                             new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                                android.content.Intent restartIntent = app.getPackageManager().getLaunchIntentForPackage(app.getPackageName());
+                                Intent restartIntent = app.getPackageManager().getLaunchIntentForPackage(app.getPackageName());
                                 if (restartIntent != null) {
-                                    restartIntent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    restartIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     app.startActivity(restartIntent);
                                 }
                                 Runtime.getRuntime().exit(0);
