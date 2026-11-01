@@ -24,7 +24,7 @@ val fixRandomSubredditPatch = bytecodePatch(
 ) {
     compatibleWith(COMPATIBILITY_BOOST)
 
-    extendWith("extension.mpe")
+    extendWith("extensions/extension.mpe")
 
     execute {
         val logger = Logger.getLogger(this::class.java.name)

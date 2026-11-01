@@ -26,7 +26,7 @@ private const val TITLE = "Custom Cartographic Region"
 internal val regionExtensionPatch = bytecodePatch(
     description = "Adds the Custom Cartographic Region UI extension.",
 ) {
-    extendWith("extension.mpe")
+    extendWith("extensions/extension.mpe")
 }
 
 private val regionManifestPatch = resourcePatch(
