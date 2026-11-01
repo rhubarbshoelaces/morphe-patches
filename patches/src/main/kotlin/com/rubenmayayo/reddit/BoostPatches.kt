@@ -2,6 +2,7 @@ package com.rubenmayayo.reddit
 
 import app.morphe.patcher.patch.Compatibility
 import app.morphe.patcher.patch.bytecodePatch
+import app.morphe.patcher.patch.resourcePatch
 import app.morphe.patcher.Fingerprint
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
@@ -10,6 +11,7 @@ import app.morphe.patcher.extensions.InstructionExtensions.instructions
 import app.morphe.patcher.extensions.InstructionExtensions.addInstruction
 import app.morphe.patcher.extensions.InstructionExtensions.addInstructions
 import app.morphe.patcher.extensions.InstructionExtensions.replaceInstruction
+import org.w3c.dom.Element
 import java.util.logging.Logger
 
 val COMPATIBILITY_BOOST = Compatibility(
@@ -17,12 +19,54 @@ val COMPATIBILITY_BOOST = Compatibility(
     packageName = "com.rubenmayayo.reddit"
 )
 
+/** The subreddit overflow menu, one file per "main toolbar action" setting. */
+private val SUBREDDIT_MENUS = listOf(
+    "res/menu/menu_subreddit.xml",
+    "res/menu/menu_subreddit_refresh.xml",
+    "res/menu/menu_subreddit_search.xml"
+)
+
+/** Decoded resources spell ids as `@id/...`, the bundled XML as `@+id/...`. */
+private const val RANDOM_NSFW_ITEM = "action_go_to_random_nsfw"
+
+/** Sits between "Filter" (40) and "Clear read" (50). */
+private const val RANDOM_NSFW_ORDER = "45"
+
+/**
+ * Adds a second Random NSFW entry to the overflow menu, directly above "Clear read".
+ * The original stays inside the "Go to" submenu. Both carry the same id, so
+ * onCreateOptionsMenu and the existing click handler serve either one.
+ */
+private val randomNsfwMenuPatch = resourcePatch(
+    description = "Adds a Random NSFW shortcut to the overflow menu, above Clear read.",
+) {
+    execute {
+        SUBREDDIT_MENUS.forEach { menuFile ->
+            document(menuFile).use { document ->
+                val items = document.getElementsByTagName("item")
+                val item = (0 until items.length)
+                    .map { items.item(it) as Element }
+                    .firstOrNull { it.getAttribute("android:id").substringAfterLast('/') == RANDOM_NSFW_ITEM }
+                    ?: error("$menuFile has no $RANDOM_NSFW_ITEM item")
+
+                val shortcut = item.cloneNode(true) as Element
+                shortcut.setAttribute("android:orderInCategory", RANDOM_NSFW_ORDER)
+                // onPrepareOptionsMenu reveals the item it finds by id, which is the
+                // one still in the submenu, so this copy has to be visible already.
+                shortcut.setAttribute("android:visible", "true")
+                document.documentElement.appendChild(shortcut)
+            }
+        }
+    }
+}
+
 val fixRandomSubredditPatch = bytecodePatch(
     name = "Fix Random Subreddit Button",
     description = "Reroutes all Random buttons to pick from a custom pre-loaded list of thousands of subreddits.",
     default = true
 ) {
     compatibleWith(COMPATIBILITY_BOOST)
+    dependsOn(randomNsfwMenuPatch)
 
     extendWith("extension.mpe")
 
